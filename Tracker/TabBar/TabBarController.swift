@@ -3,7 +3,11 @@ import UIKit
 final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .hdBackground
+        let lineView = UIView(frame: CGRect(x: 0, y: 0,
+                                            width: tabBar.frame.size.width,
+                                            height: 1))
+        lineView.backgroundColor = .hdBlack
+        tabBar.addSubview(lineView)
                 
         let trackersViewController = TrackersViewController()
         let statisticsViewController = StatisticsViewController()
@@ -20,7 +24,7 @@ final class TabBarController: UITabBarController {
         )
         
         let navigationControllerViewController = UINavigationController(rootViewController: trackersViewController)
-        navigationControllerViewController.view.backgroundColor = .hdBackground
+        navigationControllerViewController.view.backgroundColor = .hdWhite
         navigationControllerViewController.navigationBar.isTranslucent = false
         
         self.viewControllers = [navigationControllerViewController, statisticsViewController]
